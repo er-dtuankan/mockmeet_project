@@ -7,7 +7,7 @@ import axios from 'axios';
 
 // create axios instance with backend base URL
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/api/v1',
+  baseURL: 'https://mockmeet-backend.onrender.com/api/v1',
   timeout: 15000,
   headers: {
     'Content-Type': 'application/json',
