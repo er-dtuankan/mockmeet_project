@@ -15,7 +15,12 @@ const app = express();
 // ── Global Middleware ─────────────────────────────────────────────────────────
 app.use(helmet());                      // security headers
 app.use(morgan('dev'));                 // request logging (only in dev)
-app.use(cors(corsOptions));             // allow frontend origin
+app.use(cors({
+    origin: '*',
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));            // allow frontend origin
 app.use(express.json({ limit: '10mb' })); // parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // parse form data
 
